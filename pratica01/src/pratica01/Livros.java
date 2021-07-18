@@ -17,4 +17,10 @@ public class Livros extends MaterialBiblioteca {
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
+	
+	public void print() {
+		for(int i = 0; i < biblioteca.size(); i++) {
+			System.out.println(biblioteca.get(i).getTitulo());
+		}
+	}
 }

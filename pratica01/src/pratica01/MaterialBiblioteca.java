@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public abstract class MaterialBiblioteca {
 	private String titulo;
 	private int ano;
-	public static ArrayList<MaterialBiblioteca> biblioteca = new ArrayList<MaterialBiblioteca>();;
+	public static ArrayList<MaterialBiblioteca> biblioteca = new ArrayList<MaterialBiblioteca>();
 	
 	public String getTitulo() {
 		return titulo;
@@ -23,9 +23,9 @@ public abstract class MaterialBiblioteca {
 		this.ano = ano;
 	}
 	
-	public void print() {
-		for(int i = 0; i < biblioteca.size(); i++) {
-			System.out.println(biblioteca.get(i).getTitulo());
-		}
-	}
+//	public void print() {
+//		for(int i = 0; i < biblioteca.size(); i++) {
+//			System.out.println(biblioteca.get(i).getAutor());
+//		}
+//	}
 }
