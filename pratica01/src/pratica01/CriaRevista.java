@@ -20,6 +20,10 @@ import java.awt.event.ActionEvent;
 
 public class CriaRevista extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField tituloField;
 	private JTextField organizacaoField;

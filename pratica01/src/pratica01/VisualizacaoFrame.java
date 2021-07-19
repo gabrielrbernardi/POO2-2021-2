@@ -1,6 +1,5 @@
 package pratica01;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -11,21 +10,20 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.ScrollPane;
 
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.ScrollPaneConstants;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
-import java.awt.Component;
-import java.awt.ComponentOrientation;
 
 public class VisualizacaoFrame extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
