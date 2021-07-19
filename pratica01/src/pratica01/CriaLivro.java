@@ -1,12 +1,10 @@
 package pratica01;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.management.MBeanAttributeInfo;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
@@ -16,8 +14,6 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
@@ -85,15 +81,29 @@ public class CriaLivro extends JFrame {
 		});
 		
 		JButton btnCadastroDeRevista = new JButton("Revistas");
+		btnCadastroDeRevista.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CriaRevista revistaFrame = new CriaRevista();
+				revistaFrame.setVisible(true);
+				setVisible(false);
+			}
+		});
 		
 		JButton btnListarTudo = new JButton("Listagem");
+		btnListarTudo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VisualizacaoFrame viewFrame = new VisualizacaoFrame();
+				viewFrame.setVisible(true);
+				setVisible(false);
+			}
+		});
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					TelaPrincipal mainFrame = new TelaPrincipal();
-					mainFrame.setVisible(true);
-					setVisible(false);
+				TelaPrincipal mainFrame = new TelaPrincipal();
+				mainFrame.setVisible(true);
+				setVisible(false);
 			}
 		});
 		
@@ -109,37 +119,36 @@ public class CriaLivro extends JFrame {
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(324)
-							.addComponent(lblNewLabel))
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addGap(324)
+								.addComponent(lblNewLabel))
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(tituloField))
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(autorField, GroupLayout.PREFERRED_SIZE, 719, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(lblNewLabel_1_1_1_1_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(incluirButton, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(tituloField))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(autorField, GroupLayout.PREFERRED_SIZE, 719, GroupLayout.PREFERRED_SIZE)))
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(btnCadastroDeRevista, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(btnListarTudo, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(btnVoltar, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE))
+								.addComponent(anoField, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE))))
 					.addContainerGap(29, Short.MAX_VALUE))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel_1_1_1_1_1, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(anoField, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(634, Short.MAX_VALUE))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(incluirButton, GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnCadastroDeRevista, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnListarTudo, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnVoltar, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
-					.addGap(317))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -163,10 +172,10 @@ public class CriaLivro extends JFrame {
 						.addComponent(anoField, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnCadastroDeRevista)
 						.addComponent(btnListarTudo)
 						.addComponent(incluirButton)
-						.addComponent(btnVoltar))
+						.addComponent(btnVoltar)
+						.addComponent(btnCadastroDeRevista))
 					.addContainerGap(213, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
@@ -182,8 +191,7 @@ public class CriaLivro extends JFrame {
 				throw new Exception("Preencha todos os campos");				
 			}else {
 				Livros livro = new Livros(titulo, autor, Integer.parseInt(ano));
-				MaterialBiblioteca.biblioteca.add(livro);
-				livro.print();
+				livro.add(livro);
 				JOptionPane.showMessageDialog(null,  "Livro criado com sucesso", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}catch(Exception e) {

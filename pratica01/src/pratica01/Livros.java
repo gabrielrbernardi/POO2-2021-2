@@ -18,9 +18,9 @@ public class Livros extends MaterialBiblioteca {
 		this.autor = autor;
 	}
 	
-	public void print() {
-		for(int i = 0; i < biblioteca.size(); i++) {
-			System.out.println(biblioteca.get(i).getTitulo());
-		}
+	public void add(Livros L) {
+		livrosList.add(L);
+		Integer[] array = {1, livrosList.size()-1};
+		Livros.indiceMap.put(getID(), array);
 	}
 }

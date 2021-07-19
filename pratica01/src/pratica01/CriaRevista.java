@@ -1,6 +1,5 @@
 package pratica01;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -72,10 +73,34 @@ public class CriaRevista extends JFrame {
 		organizacaoField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Incluir");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					cadastrarRevista();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		
 		JButton btnCadastroDeRevista = new JButton("Livros");
+		btnCadastroDeRevista.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CriaLivro livroFrame = new CriaLivro();
+				livroFrame.setVisible(true);
+				setVisible(false);
+			}
+		});
 		
 		JButton btnListarTudo = new JButton("Listagem");
+		btnListarTudo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VisualizacaoFrame viewFrame = new VisualizacaoFrame();
+				viewFrame.setVisible(true);
+				setVisible(false);
+			}
+		});
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("N\u00FAmero:");
 		lblNewLabel_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -186,5 +211,25 @@ public class CriaRevista extends JFrame {
 					.addContainerGap(215, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
+	}
+	
+	public void cadastrarRevista() throws Exception{
+		try {
+			String titulo, organizacao, volume, numero, ano;
+			titulo = tituloField.getText();
+			organizacao = organizacaoField.getText();
+			volume = volumeField.getText();
+			numero = numeroField.getText();
+			ano = anoField.getText();
+			if(titulo.equals("") || organizacao.equals("") || volume.equals("") || numero.equals("") || ano.equals("")) {
+				throw new Exception("Preencha todos os campos");				
+			}else {
+				Revistas revista = new Revistas(titulo, Integer.parseInt(ano), organizacao, Integer.parseInt(volume), Integer.parseInt(numero));
+				revista.add(revista);
+				JOptionPane.showMessageDialog(null,  "Revista criada com sucesso", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
+			}
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null, "Um erro foi encontrado\n" + e, "Cliente Error", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }

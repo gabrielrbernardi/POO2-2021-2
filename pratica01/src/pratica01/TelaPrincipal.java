@@ -1,12 +1,10 @@
 package pratica01;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
@@ -15,7 +13,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.SwingConstants;
 
 public class TelaPrincipal extends JFrame {
 
@@ -66,6 +63,13 @@ public class TelaPrincipal extends JFrame {
 		});
 		
 		JButton btnListarTudo = new JButton("Listar registros");
+		btnListarTudo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VisualizacaoFrame viewFrame = new VisualizacaoFrame();
+				viewFrame.setVisible(true);
+				setVisible(false);
+			}
+		});
 		
 		JLabel lblNewLabel = new JLabel("Cadastro de itens da biblioteca");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -73,13 +77,13 @@ public class TelaPrincipal extends JFrame {
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(257, Short.MAX_VALUE)
+					.addGap(257)
 					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(btnCriarRevista, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(btnListarTudo, GroupLayout.PREFERRED_SIZE, 156, GroupLayout.PREFERRED_SIZE)
-					.addGap(192))
+					.addContainerGap(192, Short.MAX_VALUE))
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(295)
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 328, GroupLayout.PREFERRED_SIZE)

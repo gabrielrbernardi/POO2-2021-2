@@ -1,10 +1,10 @@
 package pratica01;
 
-public class Revista extends MaterialBiblioteca {
+public class Revistas extends MaterialBiblioteca {
 	private String organizacao;
 	private int volume, numero;
 	
-	public Revista(String organizacao, int volume, int numero, String titulo, int ano) {
+	public Revistas(String titulo, int ano, String organizacao, int volume, int numero) {
 		setTitulo(titulo);
 		setAno(ano);
 		
@@ -35,6 +35,12 @@ public class Revista extends MaterialBiblioteca {
 	
 	public void setNumero(int numero) {
 		this.numero = numero;
+	}
+	
+	public void add(Revistas R) {
+		revistasList.add(R);
+		Integer[] array = {2, revistasList.size()-1};
+		Revistas.indiceMap.put(getID(), array);
 	}
 	
 }
