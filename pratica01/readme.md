@@ -1,5 +1,5 @@
 # Code
-The created codes can be found in this repository
+The created codes can be found in this repository. An executable version of the program can be found in this repository named ```pratica01_exe.jar```.
 
 # Design principles and bad smells
 One of the design principles used to do this exercise was the MVC architecture, where the files needed to build the visualization are separated from the files that control the application, where assignments are made, creating objects. A package was also created in case you had the need to use a connection to an eventual database.  
