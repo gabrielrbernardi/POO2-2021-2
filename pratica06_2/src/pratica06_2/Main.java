@@ -1,9 +1,6 @@
 package pratica06_2;
 
 public class Main {
-    public String saudacoes() {
-        return "Ola pessoas!";
-    }
 
     public static void main(String[] args) {
     	System.out.println("Letra A) 0");
@@ -27,7 +24,5 @@ public class Main {
     	Soma soma1 = new Soma(new Valor(multiplicacao.reduzido()), new Valor(div.reduzido()));
     	System.out.println(soma1.reduzido());
     	
-    	
-        System.out.println(new Main().saudacoes());
     }
 }
